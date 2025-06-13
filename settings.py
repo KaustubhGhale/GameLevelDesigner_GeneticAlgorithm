@@ -1,0 +1,51 @@
+# settings.py
+FOG_COLOR = (20, 20, 20)
+GRID_SIZE = 7
+TILE_SIZE = 100
+SCREEN_WIDTH = GRID_SIZE * TILE_SIZE
+SCREEN_HEIGHT = GRID_SIZE * TILE_SIZE
+
+# Symbols for entities
+EMPTY = 0
+PLAYER = 1
+WUMPUS = 2
+PIT = 3
+GOLD = 4
+BREEZE = 5
+STENCH = 6
+
+# --- GA Parameters ---
+POPULATION_SIZE = 100
+NUM_GENERATIONS = 9 # Total generations for the entire run
+
+# --- Difficulty Parameters ---
+NUM_DIFFICULTY_STAGES = 5  # How many distinct difficulty levels
+INITIAL_WUMPUS = 1
+INITIAL_PITS = 3
+PIT_INCREMENT_PER_STAGE = 1 # How many pits to add each stage transition
+WUMPUS_INCREMENT_FREQUENCY = 2 # Increase wumpus count every N stages (e.g., 2 = every 2nd stage)
+
+# --- Dynamic Rates (Keep these) ---
+INITIAL_MUTATION_RATE = 0.20
+FINAL_MUTATION_RATE = 0.05
+MUTATION_RATE_DECAY = (INITIAL_MUTATION_RATE - FINAL_MUTATION_RATE) / NUM_GENERATIONS
+DIVERSITY_THRESHOLD = 5.0
+MUTATION_BOOST_FACTOR = 2.5
+MAX_MUTATIONS_PER_INDIVIDUAL = 3
+
+CROSSOVER_RATE = 0.85
+TOURNAMENT_SIZE = 5
+ELITE_COUNT = 3
+
+# --- Fitness Weights (Keep these) ---
+SOLVABILITY_WEIGHT = 1000
+PATH_LENGTH_WEIGHT = 5
+HAZARD_START_PENALTY = -200 # Applied PER hazard near start
+GOLD_START_PENALTY = -100
+HAZARD_ADJACENT_GOLD_PENALTY = -150 # Applied PER hazard adjacent
+HAZARD_CLUSTERING_PENALTY = -50
+MIN_HAZARD_DISTANCE_REWARD = 25
+
+
+# --- Visualization & Saving (Keep these) ---
+SAVE_GRID_EVERY_N_GEN = 3
